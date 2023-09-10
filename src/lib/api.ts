@@ -10,8 +10,8 @@ export async function getPostsList(
   const query = `
       query PostsList {
         repository(
-          name: "blog-with-github-discussions"
-          owner: "ulvidamirli"
+          name: "${process.env.GITHUB_REPO_NAME}"
+          owner: "${process.env.GITHUB_REPO_OWNER}"
           followRenames: true
         ) {
           discussions(
@@ -59,8 +59,8 @@ export async function getPostDetail(id: string): Promise<PostDetailProps> {
   const query = `
       query PostDetail {
         repository(
-          name: "blog-with-github-discussions"
-          owner: "ulvidamirli"
+          name: "${process.env.GITHUB_REPO_NAME}"
+          owner: "${process.env.GITHUB_REPO_OWNER}"
           followRenames: true
         ) {
           discussion(number: ${id}) {
