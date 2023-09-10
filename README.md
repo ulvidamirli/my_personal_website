@@ -5,11 +5,10 @@ Check it out on [ulvidamirli.com](http://ulvidamirli.com).
 
 ## Getting Started
 
-First set up and copy a Github API access token through your Github account settings.
-Add an `.env` file using `.env.example` as example. And add your access token.
-
-Run the development server:
-
+1. Create and copy a Github API access token through your Github account settings.
+2. Create an `.env` file in root directory using `.env.example` as example. Add your access token to `.env` file.
+3. In your Github repo settings, under the 'Features' section, enable 'Discussions'.
+4. Run the development server:
 ```bash
 npm run dev
 # or
