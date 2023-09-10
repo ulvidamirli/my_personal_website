@@ -1,7 +1,7 @@
 ## What is it?
 
 This app is built with React and NextJS. It uses Github Discussions to store posts.
-Check it out on [ulvidamirli.com](ulvidamirli.com).
+Check it out on [http://ulvidamirli.com](ulvidamirli.com).
 
 ## Getting Started
 
