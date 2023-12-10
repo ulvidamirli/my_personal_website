@@ -40,7 +40,7 @@ const Page = () => {
             Docker, Docker Compose, Linux, NGINX, Traefik, AWS, GCP
           </li>
           <li>
-            <span className="font-bold">Data Science: </span>
+            <span className="font-bold">Automation/ Web scraping: </span>
             Pandas, Scrapy, BeautifulSoup4, Playwright, Selenium, Crawlee,
             Cheerio, Apify
           </li>
