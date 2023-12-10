@@ -1,7 +1,4 @@
-"use client"; // Error components must be Client Components
-
-// import { useEffect } from "react";
-
+"use client";
 // TODO: Implement error reporting service such as Sentry
 
 export default function Error({
@@ -11,10 +8,6 @@ export default function Error({
   error: Error;
   reset: () => void;
 }): JSX.Element {
-  //   useEffect(() => {
-  //     // Log the error to an error reporting service
-  //     console.error(error);
-  //   }, [error]);
 
   return (
     <main className="prose prose-lg prose-invert max-w-screen-md mx-auto px-4 my-20">
