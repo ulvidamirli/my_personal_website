@@ -1,50 +1,76 @@
-import Link from "next/link";
-import CardsList from "@/components/CardsList";
-import { CardSkeleton } from "@/components/Card";
+import {
+  HomeCardsSection,
+  HomePhotosSection,
+  CardsSectionSkeleton,
+  PhotosSectionSkeleton,
+} from "@/components/HomeSection";
+import { getLocale } from "@/i18n/locale";
+import { getDictionary } from "@/i18n/dictionaries";
 import { Suspense } from "react";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Ulvi Damirli | Homepage",
-  description:
-    "Software Engineer who loves to design and build digital products.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const locale = await getLocale();
+  const t = getDictionary(locale);
+  return {
+    title: { absolute: t.site.homeTitle },
+    description: t.site.description,
+  };
+}
 
-const Page = () => {
+const Page = async () => {
+  const locale = await getLocale();
+  const t = getDictionary(locale);
+
   return (
     <main className="max-w-screen-md mx-auto px-4">
       <section className="my-20">
         <header>
           <h1 className="mb-8 text-2xl uppercase font-semibold text-neutral-400">
-            This is Ulvi
+            {t.home.kicker}
           </h1>
-          <p className="text-4xl font-semibold leading-snug">
-            Software Engineer who loves to design and build digital products.
-          </p>
+          <p className="text-4xl font-semibold leading-snug">{t.home.hero}</p>
         </header>
       </section>
 
-      <section className="my-20">
-        <header className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-semibold">Latest Posts</h2>
-          <Link
-            href="/posts"
-            className="group block text-xs uppercase hover:text-neutral-400 duration-200"
-          >
-            <span>All posts</span>
-            <span className="inline-block transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none">
-              &nbsp;-&gt;
-            </span>
-          </Link>
-        </header>
-        <Suspense
-          fallback={Array.from({ length: 3 }).map((_, i) => (
-            <CardSkeleton key={i} />
-          ))}
-        >
-          <CardsList limit={3} offset={0} />
-        </Suspense>
-      </section>
+      {/* Each section streams in independently and hides itself when it has no
+          content (see HomeSection), so the hero still paints immediately. */}
+      <Suspense fallback={<CardsSectionSkeleton />}>
+        <HomeCardsSection
+          type="post"
+          locale={locale}
+          limit={3}
+          title={t.home.latestPosts}
+          seeAllHref="/posts"
+          seeAllLabel={t.home.allPosts}
+        />
+      </Suspense>
+
+      <Suspense fallback={<CardsSectionSkeleton />}>
+        <HomeCardsSection
+          type="project"
+          locale={locale}
+          limit={3}
+          title={t.home.projects}
+          seeAllHref="/projects"
+          seeAllLabel={t.home.allProjects}
+        />
+      </Suspense>
+
+      <Suspense fallback={<PhotosSectionSkeleton />}>
+        <HomePhotosSection
+          locale={locale}
+          limit={6}
+          title={t.home.photos}
+          seeAllHref="/photos"
+          seeAllLabel={t.home.allPhotos}
+          labels={{
+            empty: t.photos.empty,
+            close: t.photos.close,
+            view: t.photos.view,
+          }}
+        />
+      </Suspense>
     </main>
   );
 };
