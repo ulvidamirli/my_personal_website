@@ -1,0 +1,69 @@
+{
+  "site": {
+    "title": "Ulvi Damirli",
+    "titleSuffix": "Ulvi Damirli",
+    "description": "Ingénieur logiciel passionné par la conception et la création de produits numériques.",
+    "homeTitle": "Ulvi Damirli — Ingénieur logiciel"
+  },
+  "nav": {
+    "home": "Accueil",
+    "posts": "Articles",
+    "projects": "Projets",
+    "photos": "Photos",
+    "about": "À propos"
+  },
+  "home": {
+    "kicker": "Voici Ulvi",
+    "hero": "Ingénieur logiciel passionné par la conception et la création de produits numériques.",
+    "latestPosts": "Derniers articles",
+    "allPosts": "Tous les articles",
+    "projects": "Projets",
+    "allProjects": "Tous les projets",
+    "photos": "Photos",
+    "allPhotos": "Toutes les photos",
+    "loadingPhotos": "Chargement des photos…"
+  },
+  "posts": {
+    "title": "Articles",
+    "metaDescription": "Ingénieur logiciel passionné par la conception et la création de produits numériques.",
+    "empty": "Aucun article trouvé"
+  },
+  "projects": {
+    "title": "Projets",
+    "metaDescription": "Une sélection de projets conçus et réalisés par Ulvi Damirli.",
+    "empty": "Aucun projet trouvé"
+  },
+  "photos": {
+    "title": "Photos",
+    "metaDescription": "Photographies par Ulvi Damirli.",
+    "empty": "Aucune photo trouvée",
+    "close": "Fermer",
+    "view": "Voir la photo"
+  },
+  "about": {
+    "metaTitle": "À propos",
+    "metaDescription": "Ingénieur logiciel passionné par la conception et la création de produits numériques, de l'idée à la production.",
+    "kicker": "À propos de moi",
+    "lead": "J'aime concevoir et créer des produits numériques, de l'idée à la production.",
+    "intro": "Concevoir, créer et aider les entreprises à donner vie à leurs produits numériques, c'est ce que je fais depuis huit ans en tant qu'ingénieur logiciel.",
+    "domainsIntro": "Mes domaines de compétence :",
+    "domains": "Leadership d'équipe, développement produit, développement web fullstack, API REST, modélisation de données, SQL et NoSQL, Kubernetes, Cloud, architecture serverless, data mining (scraping), ETL et automatisation des tests.",
+    "stackTitle": "Mes technologies :",
+    "frontend": "Frontend :",
+    "backend": "Backend :",
+    "devops": "DevOps :",
+    "automation": "Automatisation / Web scraping :",
+    "others": "Autres :"
+  },
+  "error": {
+    "title": "Une erreur est survenue !",
+    "body": "Cette erreur s'est produite lors du rendu de la page. Nous vous suggérons de réessayer. Si l'erreur persiste, merci d'ouvrir un ticket sur GitHub.",
+    "reference": "Identifiant de référence :",
+    "tryAgain": "Réessayer"
+  },
+  "notFound": {
+    "title": "Introuvable",
+    "body": "La ressource demandée est introuvable.",
+    "viewPosts": "Voir tous les articles"
+  }
+}

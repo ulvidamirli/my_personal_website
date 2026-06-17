@@ -1,0 +1,69 @@
+{
+  "site": {
+    "title": "Ulvi Damirli",
+    "titleSuffix": "Ulvi Damirli",
+    "description": "Software Engineer who loves to design and build digital products.",
+    "homeTitle": "Ulvi Damirli — Software Engineer"
+  },
+  "nav": {
+    "home": "Home",
+    "posts": "Posts",
+    "projects": "Projects",
+    "photos": "Photos",
+    "about": "About"
+  },
+  "home": {
+    "kicker": "This is Ulvi",
+    "hero": "Software Engineer who loves to design and build digital products.",
+    "latestPosts": "Latest Posts",
+    "allPosts": "All posts",
+    "projects": "Projects",
+    "allProjects": "All projects",
+    "photos": "Photos",
+    "allPhotos": "All photos",
+    "loadingPhotos": "Loading photos…"
+  },
+  "posts": {
+    "title": "Posts",
+    "metaDescription": "Software Engineer who loves to design and build digital products.",
+    "empty": "No posts found"
+  },
+  "projects": {
+    "title": "Projects",
+    "metaDescription": "Selected projects built and designed by Ulvi Damirli.",
+    "empty": "No projects found"
+  },
+  "photos": {
+    "title": "Photos",
+    "metaDescription": "Photography by Ulvi Damirli.",
+    "empty": "No photos found",
+    "close": "Close",
+    "view": "View photo"
+  },
+  "about": {
+    "metaTitle": "About",
+    "metaDescription": "Software Engineer who loves to design and build digital products from scratch to production.",
+    "kicker": "About me",
+    "lead": "I love to design and build digital products from scratch to production.",
+    "intro": "Building, designing and helping companies create digital products is what I've been doing for the last 8 years working as a Software Engineer.",
+    "domainsIntro": "My domain knowledge includes:",
+    "domains": "Team leadership, Product Development, Fullstack Web Development, REST API, Data modeling, SQL & NoSQL, Kubernetes, Cloud, Serverless Architecture, Data mining (scraping), ETL and Test Automation.",
+    "stackTitle": "My tech stack:",
+    "frontend": "Frontend:",
+    "backend": "Backend:",
+    "devops": "DevOps:",
+    "automation": "Automation / Web scraping:",
+    "others": "Others:"
+  },
+  "error": {
+    "title": "Something went wrong!",
+    "body": "This error occurred while rendering the page. We suggest you try again. If you continue to encounter this error, please open an issue on GitHub.",
+    "reference": "Reference ID:",
+    "tryAgain": "Try again"
+  },
+  "notFound": {
+    "title": "Not Found",
+    "body": "Could not find requested resource.",
+    "viewPosts": "View all posts"
+  }
+}
