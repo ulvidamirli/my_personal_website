@@ -47,3 +47,23 @@ export type PhotosProps = {
     nodes: PhotoNode[];
   };
 };
+
+// The "About me" page content, sourced from a discussion labelled "About me".
+export type AboutNode = {
+  number: number;
+  title: string;
+  bodyHTML: string;
+  labels: Labels;
+};
+
+export type AboutSearchProps = {
+  search: {
+    nodes: AboutNode[];
+  };
+};
+
+// The resolved content rendered on the About page.
+export type AboutContent = {
+  title: string;
+  bodyHTML: string;
+};

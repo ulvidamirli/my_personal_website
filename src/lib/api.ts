@@ -3,6 +3,8 @@ import { unstable_cache } from "next/cache";
 import { githubRepo, githubToken } from "@/lib/env";
 import { extractFirstImage } from "@/lib/html";
 import type {
+  AboutContent,
+  AboutSearchProps,
   Labels,
   Photo,
   PhotosProps,
@@ -27,6 +29,8 @@ const TYPE_LABEL: Record<ContentType, string> = {
   photo: "Photo",
 };
 const DRAFT_LABEL = "Draft";
+// Single discussion labelled this drives the /about page content.
+const ABOUT_LABEL = "About me";
 
 // How long a GitHub response is cached before it is revalidated in the
 // background.
@@ -272,4 +276,49 @@ export async function getPhotos(locale: string, limit: number): Promise<Photo[]>
     })
     .filter((photo): photo is Photo => photo !== null)
     .slice(0, limit);
+}
+
+const ABOUT_QUERY = `
+  query SearchAbout($q: String!, $first: Int!) {
+    search(type: DISCUSSION, query: $q, first: $first) {
+      nodes {
+        ... on Discussion {
+          number
+          title
+          bodyHTML
+          labels(first: 20) {
+            nodes {
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+// The "About me" page is driven by a single discussion labelled "About me".
+// Language isn't filtered server-side: a site may have one language-agnostic
+// "About me" post or one per language, so we fetch all matches and prefer the
+// one whose language label matches the locale, falling back to the first. The
+// page count is tiny, so a handful of nodes is plenty. Returns null when no
+// published "About me" discussion exists, letting the page show static content.
+export async function getAboutContent(
+  locale: string
+): Promise<AboutContent | null> {
+  const { owner, name } = githubRepo();
+  const q = [
+    `repo:${owner}/${name}`,
+    "is:open",
+    `label:"${ABOUT_LABEL}"`,
+    `-label:"${DRAFT_LABEL}"`,
+  ].join(" ");
+
+  const data = await fetchGitHub<AboutSearchProps>(ABOUT_QUERY, { q, first: 10 });
+  const nodes = data.search.nodes;
+  if (nodes.length === 0) return null;
+
+  const lang = languageLabel(locale);
+  const match = nodes.find((node) => hasLabel(node.labels, lang)) ?? nodes[0];
+  return { title: match.title, bodyHTML: match.bodyHTML };
 }
