@@ -1,26 +1,26 @@
-import { memo } from "react";
 import Link from "next/link";
+import { discussionPath } from "@/lib/slug";
+import { localeTags, type Locale } from "@/i18n/config";
 
 type CardProps = {
   id: number;
   title: string;
-  createdAt: string;
-  category: string;
-}
+  // ISO date string (the discussion's last-updated timestamp).
+  date: string;
+  locale: Locale;
+  basePath?: string;
+};
 
-const Card = ({ id, title, createdAt, category }: CardProps) => {
-  const date = new Date(createdAt);
-  const formatter = new Intl.DateTimeFormat("en-US", { dateStyle: "long" });
-  const formattedDate = formatter.format(date);
+const Card = ({ id, title, date, locale, basePath = "/posts" }: CardProps) => {
+  const formattedDate = new Intl.DateTimeFormat(localeTags[locale], {
+    dateStyle: "long",
+  }).format(new Date(date));
 
   return (
-    <Link href={`/posts/${id}`} className="block mb-4">
+    <Link href={discussionPath(basePath, id, title)} className="block mb-4">
       <article className="px-4 py-5 border border-neutral-800 rounded-xl space-y-2 hover:bg-neutral-800 duration-200">
         <h3 className="font-semibold">{title}</h3>
         <div className="flex flex-wrap items-baseline space-x-4 text-sm text-neutral-300">
-          {category && (
-            <span className="px-4 py-1 rounded bg-white/10">{category}</span>
-          )}
           <span>{formattedDate}</span>
         </div>
       </article>
@@ -40,8 +40,7 @@ const CardSkeleton = () => {
     </div>
   );
 };
-const MemoizedCardSkeleton = memo(CardSkeleton);
 
 export type { CardProps };
-export default memo(Card);
-export { MemoizedCardSkeleton as CardSkeleton };
+export default Card;
+export { CardSkeleton };

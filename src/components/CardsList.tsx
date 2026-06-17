@@ -1,31 +1,40 @@
-import { memo } from "react";
 import Card from "@/components/Card";
-import { getPostsList } from "@/lib/api";
+import { getContentList } from "@/lib/api";
+import { CONTENT_BASE_PATH, type CardType } from "@/lib/content";
+import type { Locale } from "@/i18n/config";
 
 type CardsListProps = {
+  type: CardType;
+  locale: Locale;
   limit: number;
-  offset: number;
+  emptyMessage?: string;
 };
 
-const CardsList = async ({ limit, offset }: CardsListProps) => {
-  const data = (await getPostsList(limit, offset)).data.repository.discussions;
-  const posts = data.edges.flatMap((edge) => edge.node);
+const CardsList = async ({
+  type,
+  locale,
+  limit,
+  emptyMessage = "No posts found",
+}: CardsListProps) => {
+  const items = await getContentList(type, locale, limit);
+  const basePath = CONTENT_BASE_PATH[type];
 
-  return posts.length > 0 ? (
-    posts.map((post) => (
+  return items.length > 0 ? (
+    items.map((item) => (
       <Card
-        key={post.number}
-        id={post.number}
-        title={post.title}
-        createdAt={post.updatedAt}
-        category={post.category}
+        key={item.number}
+        id={item.number}
+        title={item.title}
+        date={item.updatedAt}
+        locale={locale}
+        basePath={basePath}
       />
     ))
   ) : (
     <div className="p-4 rounded-lg bg-neutral-800 text-center text-neutral-300 font-semibold">
-      No posts found
+      {emptyMessage}
     </div>
   );
 };
 
-export default memo(CardsList);
+export default CardsList;
