@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  quality:
+    name: Type-check, lint & test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npx tsc --noEmit
+      - run: npm run lint
+      - run: npm test
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+        # The build prerenders pages that read from the GitHub API, so configure
+        # these as repository secrets (Settings → Secrets and variables → Actions).
+        # Secrets cannot start with GITHUB_, hence the GH_ prefixes below.
+        env:
+          GITHUB_API_TOKEN: ${{ secrets.GH_API_TOKEN }}
+          GITHUB_REPO_OWNER: ${{ secrets.GH_REPO_OWNER }}
+          GITHUB_REPO_NAME: ${{ secrets.GH_REPO_NAME }}
+          NEXT_PUBLIC_SITE_URL: ${{ secrets.NEXT_PUBLIC_SITE_URL }}
