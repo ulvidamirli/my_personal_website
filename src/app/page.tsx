@@ -59,7 +59,6 @@ const Page = async () => {
 
       <Suspense fallback={<PhotosSectionSkeleton />}>
         <HomePhotosSection
-          locale={locale}
           limit={6}
           title={t.home.photos}
           seeAllHref="/photos"

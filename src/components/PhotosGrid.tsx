@@ -7,13 +7,13 @@ type PhotosGridProps = {
   limit: number;
 };
 
-// Server Component: resolves the locale, fetches photos for that language, and
-// hands them (with translated labels) to the client gallery (which renders the
+// Server Component: fetches photos (language-agnostic) and hands them — with
+// locale-translated UI labels — to the client gallery (which renders the
 // masonry grid + modal).
 const PhotosGrid = async ({ limit }: PhotosGridProps) => {
   const locale = await getLocale();
   const t = getDictionary(locale);
-  const photos = await getPhotos(locale, limit);
+  const photos = await getPhotos(limit);
 
   return (
     <PhotoGallery

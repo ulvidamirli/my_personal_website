@@ -81,7 +81,6 @@ export const HomeCardsSection = async ({
 };
 
 type PhotosSectionProps = {
-  locale: Locale;
   limit: number;
   title: string;
   seeAllHref: string;
@@ -90,14 +89,13 @@ type PhotosSectionProps = {
 };
 
 export const HomePhotosSection = async ({
-  locale,
   limit,
   title,
   seeAllHref,
   seeAllLabel,
   labels,
 }: PhotosSectionProps) => {
-  const photos = await getPhotos(locale, limit);
+  const photos = await getPhotos(limit);
   if (photos.length === 0) return null;
 
   return (

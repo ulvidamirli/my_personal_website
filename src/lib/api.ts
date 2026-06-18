@@ -138,18 +138,20 @@ const SEARCH_MAX = 100; // GraphQL `search` returns at most 100 nodes per page.
 
 function buildSearchQuery(
   typeLabel: string,
-  locale: string,
+  locale: string | null,
   sort: string
 ): string {
   const { owner, name } = githubRepo();
-  return [
-    `repo:${owner}/${name}`,
-    "is:open",
-    `label:"${typeLabel}"`,
-    `label:"${languageLabel(locale)}"`,
-    `-label:"${DRAFT_LABEL}"`,
-    `sort:${sort}`,
-  ].join(" ");
+  const parts = [`repo:${owner}/${name}`, "is:open", `label:"${typeLabel}"`];
+  // A null locale opts out of language filtering: photos are language-agnostic,
+  // so the "Photo" label alone is enough and the same set is shown in every
+  // locale. Posts/projects pass a real locale so each language shows only its
+  // own translations.
+  if (locale !== null) {
+    parts.push(`label:"${languageLabel(locale)}"`);
+  }
+  parts.push(`-label:"${DRAFT_LABEL}"`, `sort:${sort}`);
+  return parts.join(" ");
 }
 
 const LIST_QUERY = `
@@ -256,10 +258,11 @@ const PHOTOS_QUERY = `
 // few extra to still return up to `limit` photos.
 const PHOTO_OVERFETCH = 5;
 
-// Lists published photos for a locale (label "Photo" + language, not Draft).
-export async function getPhotos(locale: string, limit: number): Promise<Photo[]> {
+// Lists published photos (label "Photo", not Draft). Unlike posts/projects,
+// photos are not filtered by language — the same set is shown for every locale.
+export async function getPhotos(limit: number): Promise<Photo[]> {
   const data = await fetchGitHub<PhotosProps>(PHOTOS_QUERY, {
-    q: buildSearchQuery(TYPE_LABEL.photo, locale, "created-desc"),
+    q: buildSearchQuery(TYPE_LABEL.photo, null, "created-desc"),
     first: Math.min(SEARCH_MAX, limit + PHOTO_OVERFETCH),
   });
 
