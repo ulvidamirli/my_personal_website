@@ -25,11 +25,27 @@ const Page = async () => {
   return (
     <main className="max-w-screen-md mx-auto px-4">
       <section className="my-20">
-        <header>
-          <h1 className="mb-8 text-2xl uppercase font-semibold text-neutral-400">
+        <header className="flex flex-col items-center">
+          <img src="/ulvi-damirli-profile-pic.png" alt="" className="h-50 w-50 mx-auto" />
+          <h1 className="my-8 text-3xl font-semibold text-neutral-400">
             {t.home.kicker}
           </h1>
-          <p className="text-4xl font-semibold leading-snug">{t.home.hero}</p>
+          <div className="mt-8 space-y-4 text-base leading-relaxed">
+            <p>{t.home.bio.intro}</p>
+            <p>{t.home.bio.focus}</p>
+            <p>{t.home.bio.philosophy}</p>
+            <div>
+              <p className="font-semibold">{t.home.bio.careAbout}</p>
+              <ul className="list-disc list-inside space-y-1 mt-2">
+                {t.home.bio.areas.map((area) => (
+                  <li key={area}>{area}</li>
+                ))}
+              </ul>
+            </div>
+            <p>{t.home.bio.interests}</p>
+            <p>{t.home.bio.personal}</p>
+            <p>{t.home.bio.future}</p>
+          </div>
         </header>
       </section>
 
