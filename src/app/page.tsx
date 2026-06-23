@@ -4,6 +4,7 @@ import {
   CardsSectionSkeleton,
   PhotosSectionSkeleton,
 } from "@/components/HomeSection";
+import { Button } from "@/components/ui/button";
 import { getLocale } from "@/i18n/locale";
 import { getDictionary } from "@/i18n/dictionaries";
 import { Suspense } from "react";
@@ -45,6 +46,13 @@ const Page = async () => {
             <p>{t.home.bio.interests}</p>
             <p>{t.home.bio.personal}</p>
             <p>{t.home.bio.future}</p>
+          </div>
+          <div className="mt-8">
+            <a href="https://linkedin.com/in/ulvidamirli" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+              <Button variant="default" size="lg" className="cursor-pointer">
+                Connect with me on LinkedIn
+              </Button>
+            </a>
           </div>
         </header>
       </section>

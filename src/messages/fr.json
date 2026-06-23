@@ -17,6 +17,21 @@
   "home": {
     "kicker": "Voici Ulvi",
     "hero": "Ingénieur logiciel passionné par la conception et la création de produits numériques.",
+    "bio": {
+      "intro": "Je suis ingénieur logiciel senior, basé à Toulouse, en France.",
+      "focus": "Mon travail porte principalement sur les systèmes backend, le frontend, l'infrastructure cloud et les plateformes de données.",
+      "philosophy": "J'aime travailler sur des problèmes où le code n'est qu'une partie de l'équation. Ceux où le backend, le produit, les données, les opérations et le contexte métier comptent tous.",
+      "careAbout": "Quelques sujets qui me tiennent à cœur :",
+      "areas": [
+        "les systèmes backend scalables",
+        "l'infrastructure de données et l'analytique",
+        "AWS et l'architecture cloud",
+        "avancer vite sans créer de chaos"
+      ],
+      "interests": "Je m'intéresse particulièrement aux startups, à l'ingénierie assistée par l'IA et à la façon dont de petites équipes seniors peuvent construire de meilleurs systèmes avec moins de bruit.",
+      "personal": "En dehors du travail, j'aime les jeux de société, la natation, les jeux vidéo, les voyages et découvrir de nouvelles choses.",
+      "future": "Je prévois de partager davantage sur l'ingénierie, les startups, le développement assisté par l'IA et la réalité de la construction de systèmes au sein de petites équipes."
+    },
     "latestPosts": "Derniers articles",
     "allPosts": "Tous les articles",
     "projects": "Projets",

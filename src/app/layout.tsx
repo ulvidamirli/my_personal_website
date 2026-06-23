@@ -1,10 +1,13 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import { getLocale } from "@/i18n/locale";
 import { getDictionary } from "@/i18n/dictionaries";
 import { siteUrl } from "@/lib/env";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -36,7 +39,7 @@ export default async function RootLayout({
   const locale = await getLocale();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={cn("font-sans", geist.variable)}>
       <body className={`${inter.className} bg-black text-white`}>
         <Navbar />
         {children}

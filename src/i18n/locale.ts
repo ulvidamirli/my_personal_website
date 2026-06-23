@@ -1,5 +1,5 @@
 import { cookies, headers } from "next/headers";
-import { LOCALE_COOKIE, defaultLocale, isLocale, type Locale } from "./config";
+import { LOCALE_COOKIE, defaultLocale, isEnabledLocale, type Locale } from "./config";
 
 /**
  * Resolves the active locale for the current request:
@@ -11,12 +11,14 @@ import { LOCALE_COOKIE, defaultLocale, isLocale, type Locale } from "./config";
  */
 export async function getLocale(): Promise<Locale> {
   const cookieLocale = (await cookies()).get(LOCALE_COOKIE)?.value;
-  if (isLocale(cookieLocale)) return cookieLocale;
+  // Only honor a locale that is currently enabled, so a stale cookie or a
+  // browser preferring a disabled language still falls back to the default.
+  if (isEnabledLocale(cookieLocale)) return cookieLocale;
 
   const acceptLanguage = (await headers()).get("accept-language") ?? "";
   for (const part of acceptLanguage.split(",")) {
     const code = part.split(";")[0].trim().slice(0, 2).toLowerCase();
-    if (isLocale(code)) return code;
+    if (isEnabledLocale(code)) return code;
   }
 
   return defaultLocale;
