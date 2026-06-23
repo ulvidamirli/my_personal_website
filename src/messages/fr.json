@@ -10,7 +10,9 @@
     "posts": "Articles",
     "projects": "Projets",
     "photos": "Photos",
-    "about": "À propos"
+    "about": "À propos",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu"
   },
   "home": {
     "kicker": "Voici Ulvi",

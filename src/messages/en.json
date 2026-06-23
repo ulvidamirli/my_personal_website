@@ -10,7 +10,9 @@
     "posts": "Posts",
     "projects": "Projects",
     "photos": "Photos",
-    "about": "About"
+    "about": "About",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "home": {
     "kicker": "This is Ulvi",
