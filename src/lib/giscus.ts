@@ -7,9 +7,9 @@ export type GiscusConfig = {
   categoryId: string;
 };
 
-// All comments are stored in the single content category (giscus
-// mapping="pathname" keys each thread by page path). Returns null when giscus
-// isn't fully configured, so comments are simply hidden.
+// Comments attach to each content discussion via giscus mapping="number"
+// (the GitHub Discussion number passed from the detail page). Returns null
+// when giscus isn't fully configured, so comments are simply hidden.
 export function getGiscusConfig(): GiscusConfig | null {
   const repo = process.env.NEXT_PUBLIC_GISCUS_REPO;
   const repoId = process.env.NEXT_PUBLIC_GISCUS_REPO_ID;

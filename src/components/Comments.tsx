@@ -3,6 +3,8 @@ import Giscus from "@giscus/react";
 import type { GiscusConfig } from "@/lib/giscus";
 
 type CommentsProps = GiscusConfig & {
+  // GitHub Discussion number for the content post (comments attach as replies).
+  discussionNumber: number;
   // UI language for the giscus widget (e.g. "en", "fr").
   lang?: string;
 };
@@ -14,6 +16,7 @@ export default function Comments({
   repoId,
   category,
   categoryId,
+  discussionNumber,
   lang = "en",
 }: CommentsProps) {
   return (
@@ -24,7 +27,8 @@ export default function Comments({
         repoId={repoId}
         category={category}
         categoryId={categoryId}
-        mapping="pathname"
+        mapping="number"
+        term={String(discussionNumber)}
         strict="0"
         reactionsEnabled="1"
         emitMetadata="0"

@@ -66,7 +66,11 @@ export function makeDetailPage(type: CardType) {
           <CodeHighlightedContent content={item.bodyHTML} />
         </article>
         {giscus && type !== "project" && (
-          <Comments {...giscus} lang={locale} />
+          <Comments
+            {...giscus}
+            discussionNumber={item.number}
+            lang={locale}
+          />
         )}
       </main>
     );
