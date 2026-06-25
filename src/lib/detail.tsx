@@ -65,7 +65,9 @@ export function makeDetailPage(type: CardType) {
           <h1>{item.title}</h1>
           <CodeHighlightedContent content={item.bodyHTML} />
         </article>
-        {giscus && <Comments {...giscus} lang={locale} />}
+        {giscus && type !== "project" && (
+          <Comments {...giscus} lang={locale} />
+        )}
       </main>
     );
   };
