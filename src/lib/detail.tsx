@@ -20,7 +20,7 @@ const DETAIL_PATH: Record<CardType, (id: number, title: string) => string> = {
 };
 
 const ARTICLE_PROSE_CLASS =
-  "prose prose-lg mx-auto prose-neutral prose-invert prose-img:rounded-lg prose-img:w-full prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-pre:bg-[#0c1117] prose-pre:p-2 prose-pre:rounded-xl";
+  "prose prose-lg mx-auto prose-neutral prose-img:rounded-lg prose-img:w-full prose-a:text-blue-600 hover:prose-a:text-blue-500 prose-pre:bg-[#0c1117] prose-pre:p-2 prose-pre:rounded-xl";
 
 export function makeDetailMetadata(type: CardType) {
   return async function generateMetadata({

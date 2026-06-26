@@ -40,7 +40,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} className={cn("font-sans", geist.variable)}>
-      <body className={`${inter.className} bg-black text-white`}>
+      <body className={`${inter.className} bg-background text-foreground`}>
         <Navbar />
         {children}
       </body>

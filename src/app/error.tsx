@@ -27,7 +27,7 @@ export default function Error({
   const t = messages[locale].error;
 
   return (
-    <main className="prose prose-lg prose-invert max-w-screen-md mx-auto px-4 my-20">
+    <main className="prose prose-lg max-w-screen-md mx-auto px-4 my-20">
       <h2>{t.title}</h2>
       <p>
         {t.body}

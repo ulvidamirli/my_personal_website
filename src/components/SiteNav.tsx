@@ -63,7 +63,7 @@ export default function SiteNav({ home, links, locale, labels }: SiteNavProps) {
 
   const linkClass = (href: string) =>
     `duration-200 ${
-      isActive(href) ? "text-white" : "text-neutral-400 hover:text-neutral-200"
+      isActive(href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
     }`;
 
   return (
@@ -72,7 +72,7 @@ export default function SiteNav({ home, links, locale, labels }: SiteNavProps) {
         <div className="flex items-center justify-between gap-4">
           <Link
             href={home.href}
-            className="text-white hover:text-neutral-300 duration-200"
+            className="font-semibold text-foreground hover:text-muted-foreground duration-200"
             aria-current={isActive(home.href) ? "page" : undefined}
           >
             {home.label}
@@ -104,7 +104,7 @@ export default function SiteNav({ home, links, locale, labels }: SiteNavProps) {
             aria-label={open ? labels.closeMenu : labels.openMenu}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-neutral-300 hover:text-white sm:hidden"
+            className="-mr-2 inline-flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground hover:text-foreground sm:hidden"
           >
             <span className="relative block h-4 w-5" aria-hidden="true">
               <span
@@ -137,11 +137,11 @@ export default function SiteNav({ home, links, locale, labels }: SiteNavProps) {
               : "pointer-events-none -translate-y-2 opacity-0"
           }`}
         >
-          <ul className="mt-2 overflow-hidden rounded-xl border border-neutral-800 bg-neutral-950 shadow-xl shadow-black/40">
+          <ul className="mt-2 overflow-hidden rounded-xl border border-border bg-background shadow-xl shadow-black/10">
             {links.map((link) => (
               <li
                 key={link.href}
-                className="border-b border-neutral-800 last:border-b-0"
+                className="border-b border-border last:border-b-0"
               >
                 <Link
                   href={link.href}
@@ -149,8 +149,8 @@ export default function SiteNav({ home, links, locale, labels }: SiteNavProps) {
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={`block px-4 py-3 text-base duration-200 ${
                     isActive(link.href)
-                      ? "text-white"
-                      : "text-neutral-300 hover:text-white"
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {link.label}

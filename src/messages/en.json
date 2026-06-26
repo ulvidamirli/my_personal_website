@@ -15,11 +15,10 @@
     "closeMenu": "Close menu"
   },
   "home": {
-    "kicker": "Hey, I'm Ulvi 👋",
-    "hero": "I love scaling startups and helping others",
+    "hero": "Hey, I'm Ulvi! A Senior Software Engineer based in France.",
     "bio": {
       "intro": "I'm a Senior Software Engineer based in Toulouse, France.",
-      "focus": "Most of my work is around leadership in tech, backend systems, frontend, cloud infrastructure, and data platforms.",
+      "focus": "Most of my work is around tech leadership, backend systems, frontend, cloud infrastructure, and data platforms.",
       "philosophy": "I like working on problems where code is only one part of the equation. The ones where backend, product, data, operations, and business context all matter.",
       "careAbout": "A few areas I care about:",
       "areas": [
@@ -30,7 +29,7 @@
       ],
       "interests": "I'm especially interested in startups, AI-assisted engineering, and how small senior teams can build better systems with less noise.",
       "personal": "Outside work, I'm into board games, swimming, gaming, travel, and trying new things.",
-      "future": "I'm planning to share more about engineering, startups, AI-assisted development, and the reality of building systems in small teams."
+      "future": "I'm planning to share more about high-traffic systems, startups, AI-assisted development, and the reality of building systems in small teams."
     },
     "latestPosts": "Latest Posts",
     "allPosts": "All posts",

@@ -13,7 +13,7 @@ import type { Locale } from "@/i18n/config";
 const SeeAllLink = ({ href, label }: { href: string; label: string }) => (
   <Link
     href={href}
-    className="group block text-xs uppercase hover:text-neutral-400 duration-200"
+    className="group block text-xs uppercase text-muted-foreground hover:text-foreground duration-200"
   >
     <span>{label}</span>
     <span className="inline-block transition-transform group-hover:translate-x-0.5 motion-reduce:transform-none">
@@ -116,8 +116,8 @@ export const HomePhotosSection = async ({
 const SectionSkeleton = ({ children }: { children: ReactNode }) => (
   <section className="my-20">
     <header className="flex justify-between items-center mb-6">
-      <div className="h-8 w-40 rounded bg-neutral-800 animate-pulse" />
-      <div className="h-4 w-16 rounded bg-neutral-800 animate-pulse" />
+      <div className="h-8 w-40 rounded bg-muted animate-pulse" />
+      <div className="h-4 w-16 rounded bg-muted animate-pulse" />
     </header>
     {children}
   </section>
@@ -139,7 +139,7 @@ export const PhotosSectionSkeleton = () => (
       {photoSkeletonHeights.map((height, i) => (
         <div
           key={i}
-          className={`mb-4 break-inside-avoid rounded-xl bg-neutral-800 animate-pulse ${height}`}
+          className={`mb-4 break-inside-avoid rounded-xl bg-muted animate-pulse ${height}`}
         />
       ))}
     </div>

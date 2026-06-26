@@ -30,7 +30,7 @@ const PhotosSkeleton = () => (
     {skeletonHeights.map((height, i) => (
       <div
         key={i}
-        className={`mb-4 break-inside-avoid rounded-xl bg-neutral-800 animate-pulse ${height}`}
+        className={`mb-4 break-inside-avoid rounded-xl bg-muted animate-pulse ${height}`}
       />
     ))}
   </div>

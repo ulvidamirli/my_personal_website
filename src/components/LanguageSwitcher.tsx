@@ -29,7 +29,7 @@ export default function LanguageSwitcher({ current }: LanguageSwitcherProps) {
     <div className="flex items-center gap-1 text-xs uppercase" aria-label="Language">
       {enabledLocales.map((locale, i) => (
         <span key={locale} className="flex items-center gap-1">
-          {i > 0 && <span className="text-neutral-700">/</span>}
+          {i > 0 && <span className="text-border">/</span>}
           <button
             type="button"
             onClick={() => change(locale)}
@@ -37,8 +37,8 @@ export default function LanguageSwitcher({ current }: LanguageSwitcherProps) {
             aria-current={locale === current ? "true" : undefined}
             className={
               locale === current
-                ? "text-white font-semibold"
-                : "text-neutral-500 hover:text-neutral-300 duration-200 disabled:opacity-50"
+                ? "text-foreground font-semibold"
+                : "text-muted-foreground hover:text-foreground duration-200 disabled:opacity-50"
             }
           >
             {locale}

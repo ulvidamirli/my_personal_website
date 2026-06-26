@@ -31,7 +31,7 @@ const CardsList = async ({
       />
     ))
   ) : (
-    <div className="p-4 rounded-lg bg-neutral-800 text-center text-neutral-300 font-semibold">
+    <div className="p-4 rounded-lg bg-muted text-center text-muted-foreground font-semibold">
       {emptyMessage}
     </div>
   );

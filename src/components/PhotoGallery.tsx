@@ -58,7 +58,7 @@ export default function PhotoGallery({ photos, labels }: PhotoGalleryProps) {
 
   if (photos.length === 0) {
     return (
-      <div className="p-4 rounded-lg bg-neutral-800 text-center text-neutral-300 font-semibold">
+      <div className="p-4 rounded-lg bg-muted text-center text-muted-foreground font-semibold">
         {labels.empty}
       </div>
     );

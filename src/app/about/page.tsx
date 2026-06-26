@@ -23,13 +23,13 @@ const Page = async () => {
     <main className="max-w-screen-md mx-auto px-4">
       <section className="my-20">
         <header>
-          <h1 className="mb-8 text-2xl uppercase font-semibold text-neutral-400">
+          <h1 className="mb-8 text-2xl uppercase font-semibold text-muted-foreground">
             {t.about.kicker}
           </h1>
           <p className="text-4xl font-semibold leading-snug">{t.about.lead}</p>
         </header>
       </section>
-      <section className="prose prose-invert max-w-none my-20">
+      <section className="prose max-w-none my-20">
         {about ? (
           // GitHub sanitizes discussion bodyHTML server-side; see
           // CodeHighlightedContent for why we don't re-sanitize here.
