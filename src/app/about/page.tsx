@@ -21,12 +21,20 @@ const Page = async () => {
 
   return (
     <main className="max-w-screen-md mx-auto px-4">
-      <section className="my-20">
-        <header>
-          <h1 className="mb-8 text-2xl uppercase font-semibold text-muted-foreground">
+      <section className="relative my-20 sm:my-28">
+        {/* Full-bleed dot-grid backdrop, faded out toward the edges */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[60rem] w-screen -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(circle,var(--border)_1px,transparent_1px)] bg-[size:22px_22px] [mask-image:radial-gradient(ellipse_55%_60%_at_30%_45%,black,transparent_75%)] [-webkit-mask-image:radial-gradient(ellipse_55%_60%_at_30%_45%,black,transparent_75%)]"
+        />
+        <header className="flex flex-col items-start text-left">
+          <h1 className="text-2xl uppercase font-semibold text-muted-foreground">
             {t.about.kicker}
           </h1>
-          <p className="text-4xl font-semibold leading-snug">{t.about.lead}</p>
+
+          <p className="mt-6 bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text text-4xl font-bold leading-tight tracking-tight text-balance text-transparent">
+            {t.about.lead}
+          </p>
         </header>
       </section>
       <section className="prose max-w-none my-20">
