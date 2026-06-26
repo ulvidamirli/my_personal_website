@@ -34,17 +34,17 @@ const Page = async () => {
           <div className="mt-8 space-y-4 text-base leading-relaxed">
             <p>{t.home.bio.intro}</p>
             <p>{t.home.bio.focus}</p>
-            <p>{t.home.bio.philosophy}</p>
-            <div>
+            {/* <p>{t.home.bio.philosophy}</p> */}
+            {/* <div>
               <p className="font-semibold">{t.home.bio.careAbout}</p>
               <ul className="list-disc list-inside space-y-1 mt-2">
                 {t.home.bio.areas.map((area) => (
                   <li key={area}>{area}</li>
                 ))}
               </ul>
-            </div>
-            <p>{t.home.bio.interests}</p>
-            <p>{t.home.bio.personal}</p>
+            </div> */}
+            {/* <p>{t.home.bio.interests}</p> */}
+            {/* <p>{t.home.bio.personal}</p> */}
             <p>{t.home.bio.future}</p>
           </div>
           <div className="mt-8">
