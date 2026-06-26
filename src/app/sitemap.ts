@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { getContentList } from "@/lib/api";
 import { postPath, projectPath } from "@/lib/slug";
 import { siteUrl } from "@/lib/env";
-import type { PostNode } from "@/types/PostProps";
+import type { CardItem } from "@/types/PostProps";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -26,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ]);
 
     const toRoute =
-      (build: (id: number, title: string) => string) => (node: PostNode) => ({
+      (build: (id: number, title: string) => string) => (node: CardItem) => ({
         url: `${siteUrl}${build(node.number, node.title)}`,
         lastModified: new Date(node.updatedAt),
       });

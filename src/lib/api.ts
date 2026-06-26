@@ -1,16 +1,16 @@
 import { notFound } from "next/navigation";
 import { unstable_cache } from "next/cache";
 import { githubRepo, githubToken } from "@/lib/env";
-import { extractFirstImage } from "@/lib/html";
+import { excerpt, extractFirstImage } from "@/lib/html";
 import type {
   AboutContent,
   AboutSearchProps,
+  CardItem,
   Labels,
   Photo,
   PhotosProps,
   PostDetail,
   PostDetailProps,
-  PostNode,
   PostsListProps,
 } from "@/types/PostProps";
 
@@ -162,6 +162,7 @@ const LIST_QUERY = `
           title
           updatedAt
           number
+          bodyHTML
         }
       }
     }
@@ -169,17 +170,28 @@ const LIST_QUERY = `
 `;
 
 // Lists published content of a given type for a locale (most recent first).
+// Each entry carries a preview image (the first <img> in the body, if any) and
+// a short plain-text excerpt so list cards can show image + title + summary.
 export async function getContentList(
   type: ContentType,
   locale: string,
   limit: number
-): Promise<PostNode[]> {
+): Promise<CardItem[]> {
   const data = await fetchGitHub<PostsListProps>(LIST_QUERY, {
     q: buildSearchQuery(TYPE_LABEL[type], locale, "updated-desc"),
     first: Math.min(SEARCH_MAX, limit),
   });
 
-  return data.search.nodes;
+  return data.search.nodes.map((node) => {
+    const image = extractFirstImage(node.bodyHTML);
+    return {
+      number: node.number,
+      title: node.title,
+      updatedAt: node.updatedAt,
+      image: image && { src: image.src, alt: image.alt || node.title },
+      description: excerpt(node.bodyHTML),
+    };
+  });
 }
 
 const DETAIL_QUERY = `

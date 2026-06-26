@@ -4,12 +4,23 @@ export type PostNode = {
   title: string;
   updatedAt: string;
   number: number;
+  bodyHTML: string;
 };
 
 export type PostsListProps = {
   search: {
     nodes: PostNode[];
   };
+};
+
+// A content list entry enriched for card previews: the raw discussion plus a
+// preview image (first <img> in the body) and a short plain-text excerpt.
+export type CardItem = {
+  number: number;
+  title: string;
+  updatedAt: string;
+  image: { src: string; alt: string } | null;
+  description: string;
 };
 
 export type PostDetail = {

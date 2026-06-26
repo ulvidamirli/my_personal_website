@@ -74,6 +74,8 @@ export const HomeCardsSection = async ({
           date={item.updatedAt}
           locale={locale}
           basePath={basePath}
+          image={item.image}
+          description={item.description}
         />
       ))}
     </section>

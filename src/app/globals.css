@@ -37,6 +37,8 @@
     --color-popover: var(--popover);
     --color-card-foreground: var(--card-foreground);
     --color-card: var(--card);
+    --color-card-surface: var(--card-surface);
+    --color-card-surface-hover: var(--card-surface-hover);
     --color-foreground: var(--foreground);
     --color-background: var(--background);
     --radius-sm: calc(var(--radius) * 0.6);
@@ -53,6 +55,8 @@
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
     --card-foreground: oklch(0.145 0 0);
+    --card-surface: oklch(0.967 0.003 264.542 / 50%);
+    --card-surface-hover: oklch(0.967 0.003 264.542);
     --popover: oklch(1 0 0);
     --popover-foreground: oklch(0.145 0 0);
     --primary: oklch(0.205 0 0);
@@ -88,6 +92,8 @@
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);
     --card-foreground: oklch(0.985 0 0);
+    --card-surface: oklch(1 0 0 / 5%);
+    --card-surface-hover: oklch(1 0 0 / 10%);
     --popover: oklch(0.205 0 0);
     --popover-foreground: oklch(0.985 0 0);
     --primary: oklch(0.922 0 0);

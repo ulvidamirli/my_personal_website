@@ -51,3 +51,14 @@ export function htmlToText(html: string): string {
   collectText(parse(html), parts);
   return parts.join(" ").replace(/\s+/g, " ").trim();
 }
+
+// A short, plain-text excerpt of a rendered body for card previews. Truncates
+// on a word boundary and appends an ellipsis when the text is longer than
+// `maxLength`.
+export function excerpt(html: string, maxLength = 160): string {
+  const text = htmlToText(html);
+  if (text.length <= maxLength) return text;
+  const truncated = text.slice(0, maxLength);
+  const lastSpace = truncated.lastIndexOf(" ");
+  return `${(lastSpace > 0 ? truncated.slice(0, lastSpace) : truncated).trimEnd()}…`;
+}

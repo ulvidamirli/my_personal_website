@@ -28,6 +28,8 @@ const CardsList = async ({
         date={item.updatedAt}
         locale={locale}
         basePath={basePath}
+        image={item.image}
+        description={item.description}
       />
     ))
   ) : (
